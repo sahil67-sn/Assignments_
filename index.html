@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Assignments</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.3.1/css/all.min.css">
     <style>
         :root {
             --bg: #f5f6fa;
@@ -12,6 +13,11 @@
             --accent: #4f46e5;
             --accent-soft: #eef0ff;
             --border: #e5e7eb;
+            --ink: #0E1B4D;
+            --cobalt: #1E40D8;
+            --turquoise: #0E9F9A;
+            --marigold: #FFB627;
+            --ease: cubic-bezier(.2, .8, .2, 1);
         }
         *{
             margin: 0;
@@ -139,47 +145,73 @@
             background-size: 28px 28px;
         }
         .card{
-            position: relative;
             display: flex;
             flex-direction: column;
-            height: 320px;
-            width: 300px;
+            width: 340px;
             max-width: 100%;
-            min-width: 320px;
-            border-radius: 30px 30px 30px 10px;
-            padding: 24px;
+            border: 1px solid rgba(173, 216, 230, 0.278);
+            border-radius: 30px;
+            overflow: hidden;
             background: white;
-            border: 2px solid rgba(135, 207, 235, 0.496);
-            box-shadow: 0 2px 8px rgba(0,0,0,.05);
-            transition: .3s ease;
-
+            box-shadow: 0 10px 30px -18px rgba(14, 27, 77, .4);
+            transition: .4s var(--ease);
         }
-        .card:hover {
-            transform: translateY(-16px);
-            box-shadow: 0 14px 30px rgba(79,70,229,.48);
+        .card:hover{
+            transform: translateY(-8px);
+            box-shadow: 0 30px 50px -28px rgba(14, 27, 77, .5);
+        }
+        .top{
+            position: relative;
+            flex: none;
+            height: 110px;
+            background-color: var(--cobalt);
+            background-image:
+                radial-gradient(circle, rgba(255, 255, 255, .3) 0 5px, transparent 6px),
+                radial-gradient(circle, rgba(255, 255, 255, .15) 0 9px, transparent 10px);
+            background-size: 30px 30px;
+            background-position: 0 0, 15px 15px;
+            transition: background-position 1s cubic-bezier(.2, .8, .2, 1);
+        }
+        .card:hover .top{
+            background-position: 30px 30px, 45px 45px;
+        }
+        .mirrr{
+            height: 65px;
+            width: 60px;
+            background: white;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.626);
+            position: absolute;
+            left: 10%;
+            bottom: -18%;
+            border-radius: 50% 50% 5px 5px;
+            display: flex;align-items: center;justify-content: center;
+        }
+        .bottom{
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            padding: 34px 28px 28px;
+            line-height: 1.9;
+            color: var(--muted);
+        }
+        .bottom>h2, b{
+            color: var(--ink);
         }
         .num{
-            width: 42px;
-            height: 42px;
-            border-radius: 12px;
-            background: var(--accent-soft);
-            color: var(--accent);
+            font-size: .8rem;
             font-weight: 700;
-            display: grid; place-items: center;
-            margin-bottom: 14px;
-        }
-        .card h2{
-            font-size: 1.2rem;
-            margin-bottom: 6px;
+            color: var(--accent);
+            line-height: 1.2;
         }
         .subject{
             font-size: .9rem;
             color: var(--muted);
-            margin-bottom: 10px;
         }
-        .card p{
+        .bottom p{
             font-size: .92rem;
             color: #374151;
+            line-height: 1.6;
+            margin-top: 6px;
         }
         .tags{
             margin: 18px 0;
@@ -202,33 +234,13 @@
             color: #fff;
             font-weight: 900;
             font-size: 1.2rem;
+            line-height: 1.5;
             transition: background .2s;
-            /* display: flex;flex-direction: column; */
             text-align: center;
             margin-top: auto;
-            /* position: absolute; */
-            /* width: 80%;
-            bottom: 5%;
-            translate: 50% 50%;
-            right: 50%; */
         }
         .btn:hover{
             background: #3730a3;
-        }
-        .image{
-            position: absolute;
-            object-fit: cover;
-            object-position: center;
-            height: 100%;
-            width: 100%;
-            z-index: -50;
-            opacity: .599; 
-            margin-right: auto;
-        }
-        .divider{
-            height: 10px;
-            /* background: rgba(63, 63, 200, 0.83); */
-            background: black;
         }
     </style>
 </head>
@@ -257,98 +269,150 @@
             <p>BCA 1<sup>st</sup> Year  &bull;  HTML/CSS</p>
             <div class="as">01-11 Assignments</div>
             <div class="dp"><img src="assets/img/pfp.png" alt=""></div>
-            <!-- <img src="assets/img/hero.png" alt="" class="image"> -->
-            <!-- <img src="assets/img/hero.png" alt="" class="image1"> -->
         </section>
-        <!-- <div class="divider"></div> -->
         <section class="cards">
             <div class="card">
-                <div class="num">01</div>
-                <h2>Background Image</h2>
-                <div class="subject">Web Programming</div>
-                <p>Set a full-page background image using CSS, with proper size, position and repeat settings.</p>
-                <div class="tags"><span>HTML</span><span>CSS</span></div>
-                <a class="btn" href="assets/bg-image.html">View</a>
+                <div class="top">
+                    <div class="mirrr"><i class="fas fa-image fa-2x" style="color: var(--cobalt);"></i></div>
+                </div>
+                <div class="bottom">
+                    <div class="num">01</div>
+                    <h2>Background Image</h2>
+                    <div class="subject">Web Programming</div>
+                    <p>Set a full-page background image using CSS, with proper size, position and repeat settings.</p>
+                    <div class="tags"><span>HTML</span><span>CSS</span></div>
+                    <a class="btn" href="assets/bg-image.html">View</a>
+                </div>
             </div>
             <div class="card">
-                <div class="num">02</div>
-                <h2>News Page</h2>
-                <div class="subject">Web Programming</div>
-                <p>A news-style web page with headlines, images and articles arranged in a clean, structured layout.</p>
-                <div class="tags"><span>HTML</span><span>CSS</span></div>
-                <a class="btn" href="assets/news-page.html">View</a>
+                <div class="top" style="background-color: var(--turquoise);">
+                    <div class="mirrr"><i class="fas fa-newspaper fa-2x" style="color: var(--turquoise);"></i></div>
+                </div>
+                <div class="bottom">
+                    <div class="num">02</div>
+                    <h2>News Page</h2>
+                    <div class="subject">Web Programming</div>
+                    <p>A news-style web page with headlines, images and articles arranged in a clean, structured layout.</p>
+                    <div class="tags"><span>HTML</span><span>CSS</span></div>
+                    <a class="btn" href="assets/news-page.html">View</a>
+                </div>
             </div>
             <div class="card">
-                <div class="num">03</div>
-                <h2>Flex Box</h2>
-                <div class="subject">Web Programming</div>
-                <p>Demonstrates CSS Flexbox to align and distribute items in rows and columns.</p>
-                <div class="tags"><span>HTML</span><span>CSS</span></div>
-                <a class="btn" href="assets/flexbox.html">View</a>
+                <div class="top" style="background-color: var(--marigold);">
+                    <div class="mirrr"><i class="fas fa-table-columns fa-2x"></i></div>
+                </div>
+                <div class="bottom">
+                    <div class="num">03</div>
+                    <h2>Flex Box</h2>
+                    <div class="subject">Web Programming</div>
+                    <p>Demonstrates CSS Flexbox to align and distribute items in rows and columns.</p>
+                    <div class="tags"><span>HTML</span><span>CSS</span></div>
+                    <a class="btn" href="assets/flexbox.html">View</a>
+                </div>
             </div>
             <div class="card">
-                <div class="num">04</div>
-                <h2>Dynamic Gallery</h2>
-                <div class="subject">Web Programming</div>
-                <p>A responsive image gallery that adjusts its layout automatically to different screen sizes.</p>
-                <div class="tags"><span>HTML</span><span>CSS</span></div>
-                <a class="btn" href="assets/d-gallery.html">View</a>
+                <div class="top" style="background-color: var(--ink);">
+                    <div class="mirrr"><i class="fas fa-images fa-2x"></i></div>
+                </div>
+                <div class="bottom">
+                    <div class="num">04</div>
+                    <h2>Dynamic Gallery</h2>
+                    <div class="subject">Web Programming</div>
+                    <p>A responsive image gallery that adjusts its layout automatically to different screen sizes.</p>
+                    <div class="tags"><span>HTML</span><span>CSS</span></div>
+                    <a class="btn" href="assets/d-gallery.html">View</a>
+                </div>
             </div>
             <div class="card">
-                <div class="num">05</div>
-                <h2>Profile UI/UX</h2>
-                <div class="subject">Web Programming</div>
-                <p>A profile card page designed with a clean look, focusing on layout, spacing and user experience.</p>
-                <div class="tags"><span>HTML</span><span>CSS</span></div>
-                <a class="btn" href="assets/profile.html">View</a>
+                <div class="top">
+                    <div class="mirrr"><i class="fas fa-user fa-2x" style="color: var(--cobalt);"></i></div>
+                </div>
+                <div class="bottom">
+                    <div class="num">05</div>
+                    <h2>Profile UI/UX</h2>
+                    <div class="subject">Web Programming</div>
+                    <p>A profile card page designed with a clean look, focusing on layout, spacing and user experience.</p>
+                    <div class="tags"><span>HTML</span><span>CSS</span></div>
+                    <a class="btn" href="assets/profile.html">View</a>
+                </div>
             </div>
             <div class="card">
-                <div class="num">06</div>
-                <h2>Nav Bar</h2>
-                <div class="subject">Web Programming</div>
-                <p>A navigation bar with menu links, styled with hover effects and a responsive layout.</p>
-                <div class="tags"><span>HTML</span><span>CSS</span></div>
-                <a class="btn" href="assets/home.html">View</a>
+                <div class="top" style="background-color: var(--turquoise);">
+                    <div class="mirrr"><i class="fas fa-bars fa-2x" style="color: var(--turquoise);"></i></div>
+                </div>
+                <div class="bottom">
+                    <div class="num">06</div>
+                    <h2>Nav Bar</h2>
+                    <div class="subject">Web Programming</div>
+                    <p>A navigation bar with menu links, styled with hover effects and a responsive layout.</p>
+                    <div class="tags"><span>HTML</span><span>CSS</span></div>
+                    <a class="btn" href="assets/home.html">View</a>
+                </div>
             </div>
             <div class="card">
-                <div class="num">07</div>
-                <h2>Iframe</h2>
-                <div class="subject">Web Programming</div>
-                <p>Embeds another web page or content inside a page using the HTML iframe element.</p>
-                <div class="tags"><span>HTML</span><span>CSS</span></div>
-                <a class="btn" href="assets/i-frame.html">View</a>
+                <div class="top" style="background-color: var(--marigold);">
+                    <div class="mirrr"><i class="fas fa-window-maximize fa-2x"></i></div>
+                </div>
+                <div class="bottom">
+                    <div class="num">07</div>
+                    <h2>Iframe</h2>
+                    <div class="subject">Web Programming</div>
+                    <p>Embeds another web page or content inside a page using the HTML iframe element.</p>
+                    <div class="tags"><span>HTML</span><span>CSS</span></div>
+                    <a class="btn" href="assets/i-frame.html">View</a>
+                </div>
             </div>
             <div class="card">
-                <div class="num">08</div>
-                <h2>Table</h2>
-                <div class="subject">Web Programming</div>
-                <p>An HTML table with rows, columns and headers, styled with CSS borders and spacing</p>
-                <div class="tags"><span>HTML</span><span>CSS</span></div>
-                <a class="btn" href="assets/table.html">View</a>
+                <div class="top" style="background-color: var(--ink);">
+                    <div class="mirrr"><i class="fas fa-table fa-2x"></i></div>
+                </div>
+                <div class="bottom">
+                    <div class="num">08</div>
+                    <h2>Table</h2>
+                    <div class="subject">Web Programming</div>
+                    <p>An HTML table with rows, columns and headers, styled with CSS borders and spacing</p>
+                    <div class="tags"><span>HTML</span><span>CSS</span></div>
+                    <a class="btn" href="assets/table.html">View</a>
+                </div>
             </div>
             <div class="card">
-                <div class="num">09</div>
-                <h2>Box Model</h2>
-                <div class="subject">Web Programming</div>
-                <p>Explains the CSS box model with content, padding, border and margin shown visually.</p>
-                <div class="tags"><span>HTML</span><span>CSS</span></div>
-                <a class="btn" href="assets/box-ploting.html">View</a>
+                <div class="top">
+                    <div class="mirrr"><i class="fas fa-cube fa-2x" style="color: var(--cobalt);"></i></div>
+                </div>
+                <div class="bottom">
+                    <div class="num">09</div>
+                    <h2>Box Model</h2>
+                    <div class="subject">Web Programming</div>
+                    <p>Explains the CSS box model with content, padding, border and margin shown visually.</p>
+                    <div class="tags"><span>HTML</span><span>CSS</span></div>
+                    <a class="btn" href="assets/box-ploting.html">View</a>
+                </div>
             </div>
             <div class="card">
-                <div class="num">10</div>
-                <h2>Login/Signup</h2>
-                <div class="subject">Web Programming</div>
-                <p>Login and signup forms with input fields, buttons and styled form design.</p>
-                <div class="tags"><span>HTML</span><span>CSS</span></div>
-                <a class="btn" href="assets/login.html">View</a>
+                <div class="top" style="background-color: var(--turquoise);">
+                    <div class="mirrr"><i class="fas fa-keyboard fa-2x" style="color: var(--turquoise);"></i></div>
+                </div>
+                <div class="bottom">
+                    <div class="num">10</div>
+                    <h2>Login/Signup</h2>
+                    <div class="subject">Web Programming</div>
+                    <p>Login and signup forms with input fields, buttons and styled form design.</p>
+                    <div class="tags"><span>HTML</span><span>CSS</span></div>
+                    <a class="btn" href="assets/login.html">View</a>
+                </div>
             </div>
             <div class="card">
-                <div class="num">11</div>
-                <h2>Animation</h2>
-                <div class="subject">Web Programming</div>
-                <p>CSS animations and keyframes that add smooth movement and transitions to elements.</p>
-                <div class="tags"><span>HTML</span><span>CSS</span></div>
-                <a class="btn" href="assets/animation.html">View</a>
+                <div class="top" style="background-color: var(--marigold);">
+                    <div class="mirrr"><i class="fas fa-film fa-2x"></i></div>
+                </div>
+                <div class="bottom">
+                    <div class="num">11</div>
+                    <h2>Animation</h2>
+                    <div class="subject">Web Programming</div>
+                    <p>CSS animations and keyframes that add smooth movement and transitions to elements.</p>
+                    <div class="tags"><span>HTML</span><span>CSS</span></div>
+                    <a class="btn" href="assets/animation.html">View</a>
+                </div>
             </div>
         </section>
     </main>
